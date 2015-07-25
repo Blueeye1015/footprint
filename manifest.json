@@ -1,5 +1,5 @@
 {
-  "name": "BxHackathon",
+  "name": "Footprint",
   "version": "1.0",
   "manifest_version": 2,
   "description": "Baixing Hackathon",
@@ -7,7 +7,23 @@
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
+  "background":{
+    "scripts": [
+      "./bower_components/jquery/dist/jquery.min.js",
+      "background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://www.zhihu.com/*"],
+      "js": [
+        "./bower_components/jquery/dist/jquery.min.js",
+        "share.js"
+      ]
+    }
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "permissions": [
-    "http://www.zhihu.com/"
+    "tabs",
+    "http://*/*"
   ]
 }
