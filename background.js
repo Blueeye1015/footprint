@@ -13,30 +13,28 @@ if(localStorage.getItem('userId') === null) {
 	})
 }
 
-if(localStorage.getItem('whiteList') === null) {
-	localStorage.setItem('whiteList', JSON.stringify(config.whiteList))
-	localStorage.setItem('threshold', config.threshold)
+if(localStorage.getItem('setting') === null) {
+	$.get("http://120.25.151.196/footprint/regular/list.php?token=11223", function (data) {
+		localStorage.setItem('setting', JSON.stringify(data.data))
+	})
 }
 
-function share(time) {
-	if(isInWhileList(localStorage.getItem('currentUrl'))) {
-		var params = {
-			url: localStorage.getItem('currentUrl'),
-			title: localStorage.getItem('currentTitle'),
-			token: localStorage.getItem('token'),
-			initiative: false,
-			time: time
-		}
-		var url = 'http://120.25.151.196/footprint/footprint/logger.php' + '?' + $.param(params)
-		$.get(url, function (data) {
-			cleanInfo() //分享成功后要清理数据
-			console.log(data)
-		})
-	} else {
-		console.warn("Not in White List...")
-		cleanInfo()
-		return
+var whiteList = JSON.parse(localStorage.getItem('setting'));
+
+function share() {
+	var time = Date.parse(new Date()) - localStorage.getItem('startTime')
+	var params = {
+		url: localStorage.getItem('currentUrl'),
+		title: localStorage.getItem('currentTitle'),
+		token: localStorage.getItem('token'),
+		initiative: false,
+		time: time
 	}
+	var url = 'http://120.25.151.196/footprint/footprint/logger.php' + '?' + $.param(params)
+	$.get(url, function (data) {
+		console.log(data)
+		cleanInfo() //分享成功后要清理数据
+	})
 }
 
 function checkInfo() { // 检查LocalStorage
@@ -57,8 +55,9 @@ function cleanInfo() { //清理LocalStorage数据
 
 function isInWhileList(url) {  //白名单检测
 	var result = false
-	for(var key in config.whiteList) {
-		if(url.indexOf(config.whiteList[key]) != -1) {
+	var time = Date.parse(new Date()) - localStorage.getItem('startTime')
+	for(var key in whiteList) {
+		if(url.indexOf(whiteList[key].host) != -1 && time > url.indexOf(whiteList[key].threshold)) {
 			result = true
 		}
 	}
@@ -66,15 +65,14 @@ function isInWhileList(url) {  //白名单检测
 }
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-	if(checkInfo()) {
-		var time = Date.parse(new Date()) - localStorage.getItem('startTime')
-		if(time > config.threshold && checkInfo()) {
-			share(time)
+	if(changeInfo.status == 'complete' && localStorage.getItem('currentTitle') != '') {
+		if(checkInfo() && isInWhileList(localStorage.getItem('currentUrl'))) {
+			share()
 		}
+		localStorage.setItem('startTime', Date.parse(new Date()))
+		localStorage.setItem('currentUrl', tab.url)
+		localStorage.setItem('currentTitle', tab.title)
 	}
-	localStorage.setItem('startTime', Date.parse(new Date()))
-	localStorage.setItem('currentUrl', tab.url)
-	localStorage.setItem('currentTitle', tab.title)
 })
 
 chrome.tabs.onSelectionChanged.addListener(function(tabId, selectInfo) {
@@ -86,8 +84,7 @@ chrome.tabs.onSelectionChanged.addListener(function(tabId, selectInfo) {
 })
 
 chrome.tabs.onRemoved.addListener(function(tabId, changeInfo, tab) {
-	var time = Date.parse(new Date()) - localStorage.getItem('startTime')
-	if(time > config.threshold && checkInfo()) {
-		share(time)
+	if(checkInfo() && isInWhileList(localStorage.getItem('currentUrl'))) {
+		share()
 	}
 });

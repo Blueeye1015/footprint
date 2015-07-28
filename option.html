@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head lang="en">
 	<meta charset="UTF-8">
 	<title>FootPrint设置页</title>
+	<style>
+		#setting {
+			width: 640px;
+			height: 480px;
+		}
+	</style>
 </head>
 <body>
-	<p class="threshold">阈值：</p>
-	<p>白名单：</p>
-	<ul class="whiteList"></ul>
+	<h3 class="option">配置内容(JSON)：</h3>
+	<textarea id="setting" type="text"></textarea>
+	<button id="save">保存</button>
+	<button id="update">同步</button>
 	<script src="./bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="option.js"></script>
 </body>
