@@ -22,7 +22,7 @@ $(function () {
 			location.reload()
 		})
 	})
-	
+
 	$('#share').on('click', function () {
 		$('#share').hide()
 		$('#sharing').show()
@@ -41,7 +41,7 @@ $(function () {
 				localStorage.removeItem('currentTitle')
 				$('#share').show()
 				$('#sharing').hide()
-				//location.reload()
+				location.reload()
 			})
 		})
 	})
