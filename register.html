@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Register</title>
+	<style>
+		form {
+			margin: 15px;
+		}
+		input {
+			margin-bottom: 10px;
+		}
+	</style>
 </head>
 <body>
-	<h1>我是注册页面</h1>
+	<h1>FootPrint</h1>
+	<p class="error-msg"></p>
+	<form class="register">
+		<input type="text" id="userName" placeholder="用户名"/>
+		<input type="password" id="password" placeholder="密码"/>
+		<input type="text" id="BindUserId" placeholder="编号"/>
+		<button>注册</button>
+		<a href="popup.html">返回</a>
+	</form>
+	<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="jQuery.md5.js"></script>
+	<script src="popup.js"></script>
 </body>
 </html>

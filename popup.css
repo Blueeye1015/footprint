@@ -1,0 +1,140 @@
+body {
+	margin: 0px;
+}
+
+div#BeautifulList {
+	width: 300px;
+	margin: auto 0;
+	font-family: Verdana;
+}
+
+.item {
+	display: block;
+	color: #BBE1E7;
+	padding: 10px 15px;
+	background-color: #3DA2B6;
+	border-bottom: dotted 1px #A8D3DA;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.item:hover {
+	color: #fff;
+	background-color: #58AFC0;
+	font-weight: bold;
+}
+
+#sharebutton {
+	display: block;
+	width: 55px;
+	height: 55px;
+	background-image: url("/icon.png" );
+}
+
+#sharebutton:hover {
+	background-image: url("/icon_hover.png");
+}
+
+#BeautifulList h1 {
+	margin: 0;
+	font-weight: normal;
+	color: #fff;
+	padding: 15px;
+	font-size: 14px;
+	background-color: #238298
+}
+
+#BeautifulFoot h2 {
+	color: white;
+	margin: 0;
+	font-size: 12px;
+	padding: 20px 10px;
+}
+
+/*圆角*/
+div.RoundedCorner {
+	background: #3DA2B6
+}
+
+b.rtop,
+b.rbottom {
+	display: block;
+	background: #FFF
+}
+
+b.rtop b,
+b.rbottom b {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #3DA2B6
+}
+
+b.r1 {
+	margin: 0 5px
+}
+
+b.r2 {
+	margin: 0 3px
+}
+
+b.r3 {
+	margin: 0 2px
+}
+
+b.rtop b.r4,
+b.rbottom b.r4 {
+	margin: 0 1px;
+	height: 2px
+}
+
+div#share {
+	color: #191825;
+	background-color: #fafafc;
+	font-size: 13px;
+	text-decoration: none;
+	border: 0px;
+}
+
+a#sharetext {
+	position: relative;
+	bottom: 25px;
+	left: 64px;
+	font-weight: bold;
+}
+
+#rightText1 {
+	position: absolute;
+	right: 10px;
+	top: 15px;
+	color: white;
+	outline: none;
+}
+
+#rightText2 {
+	position: absolute;
+	right: 50px;
+	top: 15px;
+	color: white;
+	outline: none;
+}
+
+.DeleteButton {
+	width: 16px;
+	height: 16px;
+	position: relative;
+	top: 2px;
+}
+
+.DeleteButton:hover {
+	width: 18px;
+	height: 18px;
+}
+
+.NormalLink {
+	color: #BBE1E7;
+}
+
+.NormalLink:hover {
+	color: white;
+}
