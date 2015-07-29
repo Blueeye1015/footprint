@@ -14,7 +14,7 @@ if(localStorage.getItem('userId') === null) {
 }
 
 if(localStorage.getItem('setting') === null) {
-	$.get("http://120.25.151.196/footprint/regular/list.php?token=localStorage.getItem('token')", function (data) {
+	$.get("http://120.25.151.196/footprint/regular/list.php?token=11223", function (data) {
 		localStorage.setItem('setting', JSON.stringify(data.data))
 	})
 }

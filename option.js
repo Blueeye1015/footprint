@@ -10,10 +10,10 @@ $('#save').on('click', function () {
 	location.reload()
 })
 $('#update').on('click', function () {
-	var regular = JSON.parse(localStorage.getItem('setting'))
+	var regular =localStorage.getItem('setting')
 	$.ajax({
 		url: 'http://120.25.151.196/footprint/regular/upload.php',
-		data: {data: regular},
+		data: {data: regular, token: localStorage.getItem('token')},
 		type: 'POST',
 		dataType: 'JSON',
 		success: function (data, status) {
