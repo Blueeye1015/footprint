@@ -10,7 +10,7 @@ $(function () {
 	if(localStorage.getItem('userId') != null) {
 		$.get('http://120.25.151.196/footprint/user/myfootprint.php?token=' + localStorage.getItem('token') + '&waiting=true', function (data) {
 			$.each(data.data, function () {
-				var item = '<div><button id="' + this.foot.id + '">删除</button><a href="' + this.foot.url +'">' + this.foot.title + '</a></div>'
+				var item = '<div class="item"><input id="' + this.foot.id + '" type="image" class="DeleteButton" src="delete.png" /><a class="NormalLink" href="' + this.foot.url +'">' + this.foot.title + '</a></div>'
 				$('.recent-list').append(item)
 			})
 		})
@@ -62,7 +62,7 @@ $(function () {
 					localStorage.setItem('isLogin', true)
 					location.href = 'popup.html'
 				} else {
-					$('.error-msg').append(data.error)
+					$('.error-msg').empty().append(data.error)
 				}
 			},
 			error: function (e) {
@@ -89,7 +89,7 @@ $(function () {
 					localStorage.setItem('isLogin', true)
 					location.href = 'popup.html'
 				} else {
-					$('.error-msg').append(data.error)
+					$('.error-msg').empty().append(data.error)
 				}
 			},
 			error: function (e) {

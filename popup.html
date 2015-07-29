@@ -5,34 +5,25 @@
 		<meta charset="utf-8">
 		<script src="./bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="popup.js"></script>
-		<style>
-			body {
-				width: 360px;
-			}
-			.recent-list div {
-				margin-top: 15px;
-				margin-bottom: 15px;
-			}
-			.recent-list a {
-				font-size: 15px;
-			}
-			.recent-list button {
-				margin-right: 10px;
-			}
-			#sharing {
-				display: none;
-			}
-		</style>
+		<link rel="stylesheet" href="popup.css">
 	</head>
 	<body>
-	<h1>FootPrint</h1>
-	<p id="userid">Hello,</p>
-	<div class="user">
-		<a href="register.html">注册</a>/<a href="login.html">登陆</a>
+	<div id = "BeautifulList" >
+		<h1>
+			Hello,<a id="userid"></a>
+			<a class="user" id="rightText1" href="register.html">注册</a>
+			<a class="user" id="rightText2" href="login.html">登陆</a>
+		</h1>
+		<div id="share">
+			<div id="sharebutton"></div>
+			<a id="sharetext">← 卧槽，看上去很牛逼！回头再看！</a>
+		</div>
+		<h1>待分享列表：</h1>
+		<div class="recent-list"></div>
+		<div id="BeautifulFoot" class="RoundedCorner">
+			<h2>Welcome to FootPrint</h2>
+			<b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b>
+		</div>
 	</div>
-	<button id="share">MARK！</button>
-	<p id="sharing">分享中...</p>
-	<h3>待分享列表：</h3>
-	<div class="recent-list"></div>
 	</body>
 </html>

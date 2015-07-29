@@ -17,6 +17,7 @@ $('#update').on('click', function () {
 		type: 'POST',
 		dataType: 'JSON',
 		success: function (data, status) {
+			alert('同步成功！')
 			console.log(data)
 		},
 		error: function (error) {
