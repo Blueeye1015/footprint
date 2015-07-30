@@ -10,7 +10,7 @@ $(function () {
 	if(localStorage.getItem('userId') != null) {
 		$.get('http://120.25.151.196/footprint/user/myfootprint.php?token=' + localStorage.getItem('token') + '&waiting=true', function (data) {
 			$.each(data.data, function () {
-				var item = '<div class="item"><input id="' + this.foot.id + '" type="image" class="DeleteButton" src="delete.png" /><a class="NormalLink" href="' + this.foot.url +'">' + this.foot.title + '</a></div>'
+				var item = '<div class="item"><a class="NormalLink" href="' + this.foot.url +'">' + this.foot.title + '</a><input id="' + this.foot.id + '" type="image" class="DeleteButton" src="delete.png" /></div>'
 				$('.recent-list').append(item)
 			})
 		})

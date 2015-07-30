@@ -3,26 +3,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Register</title>
-	<style>
-		form {
-			margin: 15px;
-		}
-		input {
-			margin-bottom: 10px;
-		}
-	</style>
+	<link rel="stylesheet" href="login.css">
 </head>
 <body>
 <h1>FootPrint</h1>
 <p class="error-msg"></p>
 	<form class="login">
-		<input type="text" id="userName" placeholder="用户名"/>
-		<input type="password" id="password" placeholder="密码"/>
-		<button>登录</button>
-		<a href="popup.html">返回</a>
+		<input type="text" style="border-radius:5px;" id="userName" placeholder="用户名"/>
+		<input type="password" style="border-radius:5px;" id="password" placeholder="密码"/>
+		<button class="myButton">登录</button>
+		<a id="backbutton" href="popup.html"><img src="back.png"></a>
 	</form>
 	<script src="./bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="jQuery.md5.js"></script>
 	<script src="popup.js"></script>
+	<div id="BeautifulFoot" class="RoundedCorner">
+		<h2>Welcome to FootPrint</h2>
+		<b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b>
+	</div>
 </body>
 </html>
