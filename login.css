@@ -1,0 +1,108 @@
+form {
+	margin: 15px;
+}
+
+input {
+	margin-bottom: 10px;
+	padding: 5px;
+}
+
+body {
+	margin: auto 0;
+	width: 300px;
+	background-color: #238298;
+}
+
+h1 {
+	margin: 0;
+	font-weight: normal;
+	color: #fff;
+	padding: 15px;
+	font-size: 14px;
+	background-color: #238298
+}
+
+#BeautifulFoot h2 {
+	color: white;
+	margin: 0;
+	font-size: 12px;
+	padding: 20px 10px;
+}
+
+/*圆角*/
+div.RoundedCorner {
+	background: #3DA2B6
+}
+
+b.rtop,
+b.rbottom {
+	display: block;
+	background: #FFF
+}
+
+b.rtop b,
+b.rbottom b {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #3DA2B6
+}
+
+b.r1 {
+	margin: 0 5px
+}
+
+b.r2 {
+	margin: 0 3px
+}
+
+b.r3 {
+	margin: 0 2px
+}
+
+b.rtop b.r4,
+b.rbottom b.r4 {
+	margin: 0 1px;
+	height: 2px
+}
+
+#backbutton {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	color: white;
+}
+
+.myButton {
+	position: absolute;
+	bottom: 85px;
+	right: 15px;
+	background-color: #3DA2B6;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #29668f;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 17px;
+	padding: 22px 30px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #3d768a;
+	outline: none;
+}
+
+.myButton:hover {
+	background-color: #408c99;
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
+
+.error-msg {
+	color: white;
+	margin-left: 15px;
+}
